@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+  .navbar-nav .nav-link:hover {
+        color: blue !important; /* Bootstrap primary blue */
+      } 
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .low-stock {
+      background-color: #f8d7da; /* light red */
+    }
+    .medium-stock {
+      background-color: #fff3cd; /* light yellow */
+    }
+    .high-stock {
+      background-color: #d1e7dd; /* light green */
+    }
+    .table td {
+      vertical-align: middle;
+    }
+
+</style>  
+   
+</head>
+
+<body>
+
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+          <img src="images/logo.jpg" alt="Logo" width="90" height="50" class="d-inline-block align-text-top">
+        </a>
+        <ul class="navbar-nav justify-content-center mb-2 mb-lg-0 w-100 nav-underline">
+          <li class="nav-item">
+            <a class="nav-link" href="hairdresser_homepage.html" aria-current="page" href="#">Hairdresser home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="My_Schedule.html" >My Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Inventory_levels.html">Inventory levels</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link active" href="Bookings.html" >Schedule a session</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html" >Products</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Back to home page</a>
+          </li>
+        </ul>
+       
+      </div>
+    </nav>
+
+  <main class="flex-grow-1">
+  <div class="container mt-4">
+      <h1 class="text-center">Inventory</h1>
+    </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
+
+      <div class="container py-4">
+    <h2 class="mb-4 text-center">💇‍♀️ Salon Inventory Management</h2>
+
+    <!-- Search bar -->
+    <div class="input-group mb-3">
+      <input type="text" id="searchInput" class="form-control" placeholder="Search product...">
+      <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
+    </div>
+
+    <!-- Inventory Table -->
+    <div class="card shadow-sm">
+      <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Price</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTable">
+            <!-- Rows will be added by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Product Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Product:</strong> <span id="modalProductName"></span></p>
+          <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+          <p><strong>Stock:</strong> <span id="modalStock"></span></p>
+          <p><strong>Price:</strong> R<span id="modalPrice"></span></p>
+          <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Dummy inventory data
+    const products = [
+      { id: 1, name: "Shampoo", category: "Hair Care", stock: 25, price: 200 },
+      { id: 2, name: "Conditioner", category: "Hair Care", stock: 5, price: 200 },
+      { id: 3, name: "Hair gel", category: "Styling", stock: 12, price: 100 },
+      { id: 4, name: "Hair serum", category: "Hair Care", stock: 2, price: 200 },
+      { id: 5, name: "Hair brush", category: "Tools", stock: 18, price: 50 },
+      { id: 6, name: "Hair mask", category: "Hair Care", stock: 12, price: 80 }
+    ];
+
+    const tableBody = document.getElementById("inventoryTable");
+
+    // Function to set row color based on stock
+    function getStockClass(stock) {
+      if (stock <= 5) return "low-stock";
+      if (stock <= 15) return "medium-stock";
+      return "high-stock";
+    }
+
+    // Function to render table
+    function renderTable(filter = "") {
+      tableBody.innerHTML = "";
+      products
+        .filter(p => p.name.toLowerCase().includes(filter.toLowerCase()))
+        .forEach((p, index) => {
+          const row = document.createElement("tr");
+          row.className = getStockClass(p.stock);
+          row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${p.name}</td>
+            <td>${p.category}</td>
+            <td>${p.stock}</td>
+            <td>R${p.price.toFixed(2)}</td>
+            <td>${p.stock <= 5 ? "Low" : "In Stock"}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary" onclick="showProduct(${p.id})">View</button>
+            </td>
+          `;
+          tableBody.appendChild(row);
+        });
+    }
+
+    // Show product details in modal
+    function showProduct(id) {
+      const product = products.find(p => p.id === id);
+      document.getElementById("modalProductName").textContent = product.name;
+      document.getElementById("modalCategory").textContent = product.category;
+      document.getElementById("modalStock").textContent = product.stock;
+      document.getElementById("modalPrice").textContent = product.price.toFixed(2);
+      document.getElementById("modalStatus").textContent =
+        product.stock <= 5 ? "Low Stock" : "Available";
+      new bootstrap.Modal(document.getElementById("productModal")).show();
+    }
+
+    // Search feature
+    document.getElementById("searchBtn").addEventListener("click", () => {
+      const query = document.getElementById("searchInput").value;
+      renderTable(query);
+    });
+    document.getElementById("searchInput").addEventListener("input", e => {
+      renderTable(e.target.value);
+    });
+
+    // Initial render
+    renderTable();
+  </script>
+
+
+    <footer class="bg-light text-center text-lg-start border-top mt-5">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center py-3">
+
+    <!-- Left side: logo or name -->
+    <div class="mb-3 mb-md-0">
+      <img src="images/logo.jpg" alt="Logo" width="80" height="45" class="d-inline-block align-text-top">
+      <span class="ms-2 fw-semibold">© 2025 Hairdresser org.</span>
+    </div>
+
+    <!-- Right side: social media links -->
+    <div>
+      <a href="https://www.instagram.com/yourhandle" target="_blank" class="text-dark me-3 text-decoration-none">
+        <i class="bi bi-instagram fs-4"></i>
+      </a>
+      <a href="https://www.facebook.com/yourhandle" target="_blank" class="text-dark me-3 text-decoration-none">
+        <i class="bi bi-facebook fs-4"></i>
+      </a>
+      <a href="https://www.tiktok.com/@yourhandle" target="_blank" class="text-dark">
+        <i class="bi bi-tiktok fs-4"></i>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+  </body>
+
+
+</html>
