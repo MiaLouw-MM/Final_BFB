@@ -1,9 +1,12 @@
+/*fix laterrrrrr*/ 
+
 create table hairdressor(
 hairdressor_id INTEGER primary key AUTOINCREMENT,
 hairdressor_name varchar(100) not null,
 hairdressor_surname varchar(100) not null,
 hairdressor_phone varchar(15),
-hairdressor_email varchar(100) unique
+hairdressor_email varchar(100) unique,
+password varchar(100) not null,
 );
 
 INSERT INTO hairdressor (hairdressor_name, hairdressor_surname, hairdressor_phone, hairdressor_email)
