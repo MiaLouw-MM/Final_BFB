@@ -1,6 +1,4 @@
-/*fix laterrrrrr*/ 
-
-create table hairdressor(
+/*create table hairdressor(
 hairdressor_id INTEGER primary key AUTOINCREMENT,
 hairdressor_name varchar(100) not null,
 hairdressor_surname varchar(100) not null,
@@ -14,6 +12,6 @@ VALUES
 ("Caty", "Brown", "0798888888", "catyBrown@hairdressor.com"),
 ("Jake", "White", "0797777777", "jakeWhite@hairdressor.com"),
 ("Stacey", "Green", "0796666666", "staceygreen@hairdressor.com"),
-("Josh", "King", "0795555555", "joshB@hairdressor.com");
+("Josh", "King", "0795555555", "joshB@hairdressor.com");*/
 
 SELECT * FROM hairdressor;
