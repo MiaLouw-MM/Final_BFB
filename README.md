@@ -3,6 +3,8 @@ A web-based inventory management, bookings and schedule tracking system for a ha
 ## Features
 - Home page: For clients to view the website.  
 - Inventory management: For hardressers to see how much stock is left.
+- Schedule management: Hairdressers can see their bookings for the week and manage their schedules.
+- Booking system: Clients are able to make a booking and select a service, hairdresser and timeslot.
 
 ## Database Schema
 ### Entity Relationship Diagram (ERD)
@@ -18,6 +20,19 @@ The database includes the following tables:
 6. customers
 7. hairdressor
 8. Bookings
+   
+## Sample Data
+The database includes the following sample data for testing:
+
+- 6 Products: Shampoo, Conditioner, Hairbrush, Hair serum, Hair mask, Hair gel
+- 8 Vendors: List of contacts that supply our products
+- 8 Purchase orders
+- 9 Services: Different cut and colour services that are offered
+- 10 Goods issued
+- 3 Customers: List of people that have placed bookings in the past
+- 4 Hairdressers: Caty, Jake, Stacey, Josh
+- 10 Bookings: Current bookings that have been placed
+  
 
 ## File Structure
 1. index.html
