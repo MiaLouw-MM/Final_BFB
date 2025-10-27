@@ -1,4 +1,4 @@
-# Final_BFB
+# Group 8 BFB Semester Project
 A web-based inventory management, bookings and schedule tracking system for a hairdresser company.
 
 ## Members
