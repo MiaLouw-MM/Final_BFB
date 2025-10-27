@@ -2,9 +2,9 @@
 A web-based inventory management, bookings and schedule tracking system for a hairdresser company.
 
 ## Members
-Elca van den Heever - u23525186
-Jana Leonard - u23531292
-Mia Louw - u23524465
+-Elca van den Heever - u23525186
+-Jana Leonard - u23531292
+-Mia Louw - u23524465
 
 ## Features
 - Home page: For clients to view the website.  
