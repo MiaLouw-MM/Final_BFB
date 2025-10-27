@@ -61,7 +61,7 @@ The database includes the following sample data for testing:
 15. **ReadMe.md:**              Breakdown of webpage components
 16. **style.css:**
 
-## Usage
+## Usage and setup
 1. Open index.html in web browser
 2. Navigate through different pages as follows:
       1. On the index.html (homepage) you can see the navigation bar at the top to navigate through Home, Services, About us, Schedule a session, Products and Login
