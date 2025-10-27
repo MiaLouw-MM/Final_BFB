@@ -6,6 +6,9 @@ A web-based inventory management, bookings and schedule tracking system for a ha
 - Jana Leonard - u23531292
 - Mia Louw - u23524465
 
+## Project Purpose
+Our project aims to address scheduling, booking and inventory management challenges within a hairdresser's line of work. Our project aims to link clients' interface as well as hairdressers' accounts to centralize booking information. This is done via use of inventory management systems and digitalized scheduling/booking systems.
+
 ## Features
 - Home page: For clients to view the website.  
 - Inventory management: For hardressers to see how much stock is left.
