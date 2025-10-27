@@ -1,4 +1,4 @@
-# Group 8 BFB Semester Project
+# Group 8 BFB321 Semester Project
 A web-based inventory management, bookings and schedule tracking system for a hairdresser company.
 
 ## Members
