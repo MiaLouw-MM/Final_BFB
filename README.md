@@ -1,13 +1,16 @@
 # Final_BFB
 A web-based inventory management, bookings and schedule tracking system for a hairdresser company.
+
+## Members
+Elca van den Heever - u23525186
+Jana Leonard - u23531292
+Mia Louw - u23524465
+
 ## Features
 - Home page: For clients to view the website.  
 - Inventory management: For hardressers to see how much stock is left.
 - Schedule management: Hairdressers can see their bookings for the week and manage their schedules.
 - Booking system: Clients are able to make a booking and select a service, hairdresser and timeslot.
-
-## Database Setup
-### Using SQLite Command Line
 
 ## Database Schema
 ### Entity Relationship Diagram (ERD)
