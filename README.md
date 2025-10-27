@@ -6,6 +6,9 @@ A web-based inventory management, bookings and schedule tracking system for a ha
 - Schedule management: Hairdressers can see their bookings for the week and manage their schedules.
 - Booking system: Clients are able to make a booking and select a service, hairdresser and timeslot.
 
+## Database Setup
+### Using SQLite Command Line
+
 ## Database Schema
 ### Entity Relationship Diagram (ERD)
 ![ERD](images/bigERD.jpeg)
@@ -52,8 +55,26 @@ The database includes the following sample data for testing:
 15. **ReadMe.md:**              Breakdown of webpage components
 16. **style.css:**
 
+## Usage
+1. Open index.html in web browser
+2. Navigate through different pages as follows:
+      1. On the index.html (homepage) you can see the navigation bar at the top to navigate through Home, Services, About us, Schedule a session, Products and Login
+      2. On the login page, you can login as a client or as admin.
+      3. Login as admin and click on login, this will take you to the hairdresser homepage
+      4. From here you can navigate through Schedule, Inventory and back to the main home page.
+      5. Schedule will show each hairdresser's schedule for the week and details for each booking
+      6. Inventory will show all stock available and well as low stock if below 5.
+
+
 ## Technologies Used
 - HTML5
 - Bootstrap 5.3.8
 - Bootstrap Icons
 - SQLite
+
+## Browser Compatibility
+The application works with all modern browsers that supports HTML5 and CSS3, including: 
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
