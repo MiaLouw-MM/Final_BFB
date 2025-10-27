@@ -8,7 +8,7 @@ A web-based inventory management, bookings and schedule tracking system for a ha
 
 ## Database Schema
 ### Entity Relationship Diagram (ERD)
-![ERD](images/ERD.png)
+![ERD](images/bigERD.jpeg)
 
 The database includes the following tables:
 ### Tables
